@@ -1,0 +1,5 @@
+FROM openjdk
+RUN cd /opt && curl -OL https://downloads.apache.org/kafka/2.6.0/kafka_2.12-2.6.0.tgz && tar -xvzf kafka_2.12-2.6.0.tgz && rm -f kafka_2.12-2.6.0.tgz
+WORKDIR /opt/kafka_2.12-2.6.0
+COPY zooker.sh /opt/kafka_2.12-2.6.0/
+RUN cd /opt/kafka_2.12-2.6.0/ && chmod 755 zooker.sh && bash zooker.sh
